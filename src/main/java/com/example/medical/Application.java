@@ -9,11 +9,10 @@ public class Application {
 
     public static void main(String[] args) {
 
-        PatientController patientController = PatientController.getInstance();
-        List<Patient> patientList = patientController.getAll();
-        for (int i=0; i<patientList.size();i++)
-        {
-            System.out.println(patientList.get(i).getpFullName());
+//        PatientController patientController = PatientController.getInstance();
+        List<Patient> patientList = PatientController.getInstance().getAll();
+        for (Patient patient : patientList) {
+            System.out.println(patient.getpFullName());
         }
     }
 

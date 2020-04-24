@@ -10,11 +10,8 @@
 <h:head>
 </h:head>
 <h:body>
+
     <h1>Hello World PrimeFaces</h1>
-
-    <h:form>
-        <p:editor value="#{editor.value}" />
-    </h:form>
-
+    <h:outputText value="#{patientBean.patient.get(0).pFirstName}"/>
 </h:body>
 </html>
