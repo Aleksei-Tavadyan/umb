@@ -8,22 +8,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
 
-@ManagedBean
+@ManagedBean(name="patientBean")
 @ViewScoped
 public class PatientBean {
-
-    public static final String BEAN_NAME = "patientBean";
 
     private List<Patient> patient;
 
     private Integer size;
 
-    public PatientBean(){
+    public PatientBean() {
 
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         patient = PatientController.getInstance().getAll();
         size = patient.size();
     }
