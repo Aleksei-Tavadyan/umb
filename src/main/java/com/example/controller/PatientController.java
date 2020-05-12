@@ -21,7 +21,7 @@ public class PatientController extends AbstractController {
             return (List<Patient>) em.createNamedQuery("Patient.findAll")
                     .getResultList();
         } catch (Exception e){
-            System.out.println("Error! Can't complete method 'Patient.getAll' "+e);
+            logger.error("Error! Can't complete method Patient.getAll" + e);
         }
         finally {
             closeEntityManager(em);

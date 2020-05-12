@@ -6,11 +6,17 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+<link rel="stylesheet" href="resources/theme.css"/>
 
-<h:head>
-</h:head>
-<h:body>
-    <h1>Hello World PrimeFaces</h1>
-    <h:outputText value="#{patientBean.patient.get(0).pFirstName}"/>
-</h:body>
+<p:dataTable id="mainTable"
+             value="#{patientListBean.patientList}"
+             rendered="true"
+             var="row">
+    <p:column headerText="КУ">
+        <h:outputText value="#{row.pFirstName}"/>
+    </p:column>
+    <p:column headerText="Zdraste">
+        <h:outputText value="#{row.pBirthDay}"/>
+    </p:column>
+</p:dataTable>
 </html>

@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 public class HibernateUtil {
 
     private static HibernateUtil instance = new HibernateUtil();
-    private static final String PERSISTENT_UNIT_NAME="medical";
+    private static final String PERSISTENT_UNIT_NAME = "medical";
 
     /*
      * Конструктор
@@ -26,6 +26,7 @@ public class HibernateUtil {
      */
     public static HibernateUtil getInstance() {
         return instance;
+        
     }
 
     //Фабрика для получения экземпляра EntityManager
