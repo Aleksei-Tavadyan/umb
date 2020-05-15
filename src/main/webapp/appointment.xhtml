@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="resources/theme.css"/>
 
 
-    <h:outputText value="INPUT Appointment ID BELOW"/>
-    <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"/>
-    <p:commandButton value="Appointment w/ inserted id"
-                     action="#{appointmentBean.selectCurrentApp}"
-                     update="appointmentId outId"
-                     process="@this"
-                     immediate="true"/>
-    <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"/>
+    <h:form id="asdasd">
+        <h:outputText value="INPUT Appointment ID BELOW"/>
+        <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"/>
+        <p:commandButton value="Appointment w/ inserted id"
+                       actionListener="#{appointmentBean.selectCurrentApp}"
+                       process="@this"/>
+        <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"/>
+
+    </h:form>
+
 
 </ui:composition>

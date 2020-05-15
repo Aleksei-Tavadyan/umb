@@ -6,6 +6,7 @@ import com.example.entity.Appointment;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import java.sql.SQLOutput;
 import java.util.List;
 
 @ManagedBean(name="appointmentBean")
@@ -40,6 +41,7 @@ public class AppointmentBean {
 
     public void selectCurrentApp()
     {
+        System.out.println("ASDDSASDASDA    ");
         currentAppointment = AppointmentController.getInstance().getById(selectedAppId);
     }
 

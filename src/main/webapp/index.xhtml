@@ -13,6 +13,27 @@
     <h1>Hello World PrimeFaces</h1>
     <h:outputText value="#{patientBean.patient.get(0).pFirstName}"/>
 
+    <h:form>
+        <h:panelGrid columns="1" cellpadding="5">
+            <p:commandButton value="BASE1" type="button" onclick="PF('dlg1').show();" />
+        </h:panelGrid>
+    </h:form>
+
+    <p:dialog widgetVar="dlg1">
+        <h:form>
+            <h:outputText value="Resistance to PrimeFaces is futile!" />
+            <h:panelGrid columns="1" cellpadding="5">
+                <p:commandButton value="Basic2" type="button" onclick="PF('dlg2').show();" />
+            </h:panelGrid>
+        </h:form>
+    </p:dialog>
+
+    <p:dialog widgetVar="dlg2">
+        <h:form>
+            <h:outputText value="#{testController.test}" />
+            <p:commandButton value="Call method" actionListener="#{testController.testMethod}" />
+        </h:form>
+    </p:dialog>
 
 </h:body>
 </html>
