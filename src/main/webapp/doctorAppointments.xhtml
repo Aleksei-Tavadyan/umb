@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<link rel="stylesheet" href="resources/theme.css"/>
+
+<h:form>
+<p:growl id="messages" showDetail="false"/>
+
+<h3>Doctor`s menu</h3>
+<p:menu>
+    <p:submenu label="Patients">
+        <p:menuitem value="Get list of patients" url="http://localhost:8081/umb_war_exploded/patientList.xhtml" />
+        <p:menuitem value="Search for a certain patient" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
+    </p:submenu>
+    <p:submenu label="Appointments">
+        <p:menuitem value="List of Appointments" url="http://localhost:8081/umb_war_exploded/appointmentDetail.xhtml"/>
+        <p:menuitem value="Search for a certain Appointment" url="http://localhost:8081/umb_war_exploded/appointment.xhtml" />
+        <p:menuitem value="Add an Appointment" url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
+    </p:submenu>
+    <p:submenu label="Colleges">
+        <p:menuitem value="List of Collegies" url="http://www.primefaces.org" />
+    </p:submenu>
+</p:menu>
+</h:form>
+
+
+
+<h:form>
+
+    <p:inputText id="bugs"/>
+    <p:commandButton id="ajaxBugsSubmit" action="BUGS" value="SEND US ANY USEFULL INFORMATION OR BUGS">
+    </p:commandButton>
+</h:form>
+
+</html>
