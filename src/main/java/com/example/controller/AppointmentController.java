@@ -14,6 +14,21 @@ public class AppointmentController extends AbstractController{
         return instance;
     }
 
+    public Appointment getById(Integer id)
+    {
+        EntityManager em = null;
+        try {
+            em = HibernateUtil.getInstance().getEntityManager();
+            return (Appointment) em.createNamedQuery("Appointment.findById").setParameter("aid", id).getSingleResult();
+        } catch (Exception e){
+            logger.error("Error! Can't complete method Patient.getAll" + e);
+        }
+        finally {
+            closeEntityManager(em);
+        }
+        return null;
+    }
+
     public List<Appointment> getAll() {
         EntityManager em = null;
         try {

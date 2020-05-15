@@ -12,7 +12,10 @@ import java.util.Date;
 @Entity
 @Table(name = "patient")
 @NamedQueries({
-        @NamedQuery(name = "Patient.findAll", query = "SELECT p FROM Patient p")})
+            @NamedQuery(name = "Patient.findAll", query = "SELECT p FROM Patient p"),
+            @NamedQuery(name = "Patient.findByFirstName", query = "SELECT p FROM Patient p WHERE p.pFirstName = :pname"),
+            @NamedQuery(name = "Patient.findById", query = "SELECT p FROM Patient p WHERE p.pUnid = :pid")
+        })
 
 public class Patient implements Serializable {
     @Id

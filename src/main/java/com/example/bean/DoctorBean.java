@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
 
-@ManagedBean(name="patientBean")
+@ManagedBean(name="doctorBean")
 @ViewScoped
 public class DoctorBean {
 

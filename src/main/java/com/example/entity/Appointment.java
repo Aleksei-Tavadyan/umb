@@ -10,7 +10,10 @@ import java.util.Date;
 @Entity
 @Table(name = "appointment")
 @NamedQueries({
-        @NamedQuery(name = "Appointment.findAll", query = "SELECT a FROM Appointment a")})
+        @NamedQuery(name = "Appointment.findAll", query = "SELECT a FROM Appointment a"),
+        @NamedQuery(name = "Appointment.findByName", query = "SELECT a FROM Appointment a WHERE a.appName = :aname"),
+        @NamedQuery(name = "Appointment.findById", query = "SELECT a FROM Appointment a WHERE a.appUnid = :aid")
+})
 
 public class Appointment implements Serializable{
 
