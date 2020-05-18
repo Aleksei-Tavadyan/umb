@@ -5,6 +5,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
@@ -16,6 +17,36 @@ import java.awt.event.ActionListener;
 
 @ManagedBean
 public class MenuView {
+
+    public boolean isPatientsShow() {
+        return patientsShow;
+    }
+
+    public void setPatientsShow(boolean patientsShow) {
+        this.patientsShow = patientsShow;
+    }
+
+    private boolean patientsShow = false;
+
+    public boolean isAppointmentsShow() {
+        return appointmentsShow;
+    }
+
+    public void setAppointmentsShow(boolean appointmentsShow) {
+        this.appointmentsShow = appointmentsShow;
+    }
+
+    private boolean appointmentsShow = false;
+
+    public boolean isDoctorsShow() {
+        return doctorsShow;
+    }
+
+    public void setDoctorsShow(boolean doctorsShow) {
+        this.doctorsShow = doctorsShow;
+    }
+
+    private boolean doctorsShow = false;
 
     private MenuModel model;
 
@@ -64,7 +95,9 @@ public class MenuView {
 
     public void showPatientList()
     {
-        FacesContext.getCurrentInstance().getApplication().createComponent("dataTable");
+
+        patientsShow = true;
+
     }
     public void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);

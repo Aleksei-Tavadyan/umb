@@ -17,7 +17,7 @@
 
         <p:menu style="width:300px">
             <p:submenu label="Пациенты">
-                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}"/>
+                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="patientsTable"/>
                 <p:menuitem value="Найти пациента по id" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
             </p:submenu>
             <p:submenu label="Посещения">
@@ -35,9 +35,9 @@
 
         <p:dataTable id="patientsTable"
                      value="#{patientListBean.patientList}"
-                     rendered="true"
+                     rendered="#{menuView.patientsShow}"
                      var="row"
-                     style="margin-left: 350px; margin-top: -400px; width: auto">
+                     style="margin-left: 350px;  width: auto">
             <p:column headerText="Имя">
                 <h:outputText value="#{row.pFirstName}"/>
             </p:column>
@@ -45,10 +45,9 @@
                 <h:outputText value="#{row.pBirthDay}"/>
             </p:column>
         </p:dataTable>
-
         <p:dataTable id="appsTable"
                      value="#{appointmentListBean.appointmentList}"
-                     rendered="true"
+                     rendered="false"
                      var="row"
                      style="margin-left: 350px; width: auto">
             <p:column headerText="Дата посещения">
@@ -71,7 +70,7 @@
 
         <p:dataTable id="docsTable"
                      value="#{doctorListBean.doctorList}"
-                     rendered="true"
+                     rendered="false"
                      var="row"
                      style="margin-left: 350px; width: auto">
             <p:column headerText="Имя">
