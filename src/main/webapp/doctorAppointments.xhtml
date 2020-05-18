@@ -19,13 +19,14 @@
             <p:submenu label="Пациенты">
                 <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="@form"
                             process="@this"/>
-                <p:menuitem value="Найти пациента по id" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
+                <p:menuitem value="Найти пациента по id" action="#{menuView.showSearchPat()}" update="@form"
+                            process="@this"/>
             </p:submenu>
             <p:submenu label="Посещения">
                 <p:menuitem value="Список посещений" action="#{menuView.showAppointmentsList()}" update="@form"
                             process="@this"/>
-                <p:menuitem value="Найти посещение по id"
-                            url="http://localhost:8081/umb_war_exploded/appointment.xhtml"/>
+                <p:menuitem value="Найти посещение по id" action="#{menuView.showSearchApp()}" update="@form"
+                            process="@this"/>
                 <p:menuitem value="Добавить посещение"
                             url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
             </p:submenu>
@@ -84,6 +85,36 @@
             </p:column>
         </p:dataTable>
 
+        <h:form id="searchApp" rendered="#{menuView.searchAppShow}"
+                style="margin-left: 350px; margin-top: -450px; width: 300px"
+        >
+            <h:outputText value="Введите ID посещения"
+                          style="margin-left: 350px; margin-top: -450px; width: 300px"
+            />
+            <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"
+                         style=" width: 280px"
+            />
+            <p:commandButton value="Посещение с указанным ID"
+                             actionListener="#{appointmentBean.selectCurrentApp}"
+                             style="width: 300px"
+                             process="@this"/>
+            <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"
+                          style="width: 300px"
+            />
+
+        </h:form>
+
+        <h:form id="searchPat" rendered="#{menuView.searchPatShow}"
+                style="margin-left: 350px; margin-top: -450px; width: 300px"
+        >
+            <h:outputText value="Введите ID пациента"/>
+            <p:inputText value="#{patientBean.selectedPatientId}" id="patientId"/>
+            <p:commandButton value="Пациент с указанным ID"
+                             actionListener="#{patientBean.selectCurrentPatient}"
+                             process="@this"/>
+            <h:outputText value="#{patientBean.currentPatient.pFullName}" id="patOut"/>
+
+        </h:form>
     </h:form>
 
 

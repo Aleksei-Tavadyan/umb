@@ -14,9 +14,30 @@ import org.primefaces.model.menu.MenuModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 @ManagedBean
 public class MenuView {
+
+    public boolean isSearchAppShow() {
+        return searchAppShow;
+    }
+
+    public boolean isSearchPatShow() {
+        return searchPatShow;
+    }
+
+    public void setSearchPatShow(boolean searchPatShow) {
+        this.searchPatShow = searchPatShow;
+    }
+
+    private boolean searchPatShow;
+
+    public void setSearchAppShow(boolean searchAppShow) {
+        this.searchAppShow = searchAppShow;
+    }
+
+    private boolean searchAppShow = false;
 
     public boolean isPatientsShow() {
         return patientsShow;
@@ -50,10 +71,12 @@ public class MenuView {
 
     private MenuModel model;
 
+    //private ArrayList<Boolean> list;
     @PostConstruct
     public void init() {
         model = new DefaultMenuModel();
 
+        //list.add(searchAppShow)
         //Submenus PATIENTS APPOINTMENTS & COLLEGIES
         DefaultSubMenu patients = new DefaultSubMenu("Пациенты");
         DefaultSubMenu appointments = new DefaultSubMenu("Посещения");
@@ -81,6 +104,10 @@ public class MenuView {
         return model;
     }
 
+    public void setBooleans(boolean booleanToSetTrue)
+    {
+
+    }
     public void save() {
         addMessage("Success", "Data saved");
 
@@ -101,6 +128,14 @@ public class MenuView {
         appointmentsShow = false;
         doctorsShow = false;
 
+    }
+    public void showSearchApp()
+    {
+        searchAppShow = true;
+    }
+    public void showSearchPat()
+    {
+        searchPatShow = true;
     }
     public void showAppointmentsList()
     {
