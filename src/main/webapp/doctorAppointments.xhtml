@@ -17,7 +17,7 @@
 
         <p:menu style="width:300px">
             <p:submenu label="Пациенты">
-                <p:menuitem value="Список пациентов"/>
+                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}"/>
                 <p:menuitem value="Найти пациента по id" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
             </p:submenu>
             <p:submenu label="Посещения">
@@ -81,6 +81,7 @@
                 <h:outputText value="#{row.docUnid}"/>
             </p:column>
         </p:dataTable>
+
     </h:form>
 
 
