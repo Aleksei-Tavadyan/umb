@@ -13,6 +13,21 @@ public class DoctorController extends AbstractController{
         return instance;
     }
 
+    public Doctor getById(Integer id)
+    {
+        EntityManager em = null;
+        try {
+            em = HibernateUtil.getInstance().getEntityManager();
+            return (Doctor) em.createNamedQuery("Doctor.findById").setParameter("did", id).getSingleResult();
+        } catch (Exception e){
+            logger.error("Error! Can't complete method Patient.getAll" + e);
+        }
+        finally {
+            closeEntityManager(em);
+        }
+        return null;
+    }
+
     public List<Doctor> getAll() {
         EntityManager em = null;
         try {

@@ -33,7 +33,54 @@
             </p:submenu>
         </p:menu>
 
+        <p:dataTable id="patientsTable"
+                     value="#{patientListBean.patientList}"
+                     rendered="true"
+                     var="row"
+                     style="margin-left: 350px; margin-top: -400px; width: auto">
+            <p:column headerText="Имя">
+                <h:outputText value="#{row.pFirstName}"/>
+            </p:column>
+            <p:column headerText="Дата рождения">
+                <h:outputText value="#{row.pBirthDay}"/>
+            </p:column>
+        </p:dataTable>
 
+        <p:dataTable id="appsTable"
+                     value="#{appointmentListBean.appointmentList}"
+                     rendered="true"
+                     var="row"
+                     style="margin-left: 350px; width: auto">
+            <p:column headerText="Дата посещения">
+                <h:outputText value="#{row.appDate}"/>
+            </p:column>
+            <p:column headerText="Диагноз">
+                <h:outputText value="#{row.appDiagnosis}"/>
+            </p:column>
+            <p:column headerText="Заметки">
+                <h:outputText value="#{row.appNotes}"/>
+            </p:column>
+            <p:column headerText="Тип посещения">
+                <h:outputText value="#{row.appType}"/>
+            </p:column>
+            <p:column headerText="ID врача">
+                <h:outputText value="#{row.appDocUnid}"/>
+            </p:column>
+
+        </p:dataTable>
+
+        <p:dataTable id="docsTable"
+                     value="#{doctorListBean.doctorList}"
+                     rendered="true"
+                     var="row"
+                     style="margin-left: 350px; width: auto">
+            <p:column headerText="Имя">
+                <h:outputText value="#{row.docFullname}"/>
+            </p:column>
+            <p:column headerText="ID">
+                <h:outputText value="#{row.docUnid}"/>
+            </p:column>
+        </p:dataTable>
     </h:form>
 
 

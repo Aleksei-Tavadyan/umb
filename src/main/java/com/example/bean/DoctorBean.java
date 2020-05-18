@@ -16,6 +16,30 @@ public class DoctorBean {
 
     private Integer size;
 
+    public List<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
+    }
+
+    private Integer selectedDocId;
+
+    public Doctor getCurrentDoctor() {
+        return currentDoctor;
+    }
+
+    public void getSelectedDoctor()
+    {
+        currentDoctor = DoctorController.getInstance().getAll().get(selectedDocId);
+    }
+    public void setCurrentDoctor(Doctor currentDoctor) {
+        this.currentDoctor = currentDoctor;
+    }
+
+    private Doctor currentDoctor;
+
     public DoctorBean() {
 
     }
@@ -24,6 +48,11 @@ public class DoctorBean {
     public void init() {
         doctors = DoctorController.getInstance().getAll();
         size = doctors.size();
+    }
+
+    public void selectCurrentDoc()
+    {
+        currentDoctor = DoctorController.getInstance().getAll().get(selectedDocId);
     }
 
 

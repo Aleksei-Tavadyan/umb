@@ -13,28 +13,21 @@ import java.util.Date;
 @Entity
 @Table(name = "doctor")
 @NamedQueries({
-        @NamedQuery(name = "Doctor.findAll", query = "SELECT d FROM Doctor d")})
+        @NamedQuery(name = "Doctor.findAll", query = "SELECT d FROM Doctor d"),
+        @NamedQuery(name = "Doctor.findById", query = "SELECT d FROM Doctor d WHERE d.docUnid= :did")
+})
 
-public class Doctor implements Serializable{
+public class Doctor implements Serializable {
 
     @Id
     @Column(name = "doc_unid")
     private Integer docUnid;
 
-    @Column(name = "doc_passportunid")
-    private Integer passportUnid;
-
-    @Column(name = "doc_fullname")
-    private String docFullname;
-
-    @Column(name = "doc_specializationunid")
-    private Integer docSpecId;
-
-    public Integer getdUnid() {
+    public Integer getDocUnid() {
         return docUnid;
     }
 
-    public void setdUnid(Integer docUnid) {
+    public void setDocUnid(Integer docUnid) {
         this.docUnid = docUnid;
     }
 
@@ -46,13 +39,30 @@ public class Doctor implements Serializable{
         this.passportUnid = passportUnid;
     }
 
-    public String getdFullName() {
+    @Column(name = "doc_passportunid")
+    private Integer passportUnid;
+
+    public String getDocFullname() {
         return docFullname;
     }
 
-    public void setdFullName(String docFullname) {  this.docFullname = docFullname;   }
+    public void setDocFullname(String docFullname) {
+        this.docFullname = docFullname;
+    }
 
-    public Integer getdSpecId() { return docSpecId;}
+    @Column(name = "doc_fullname")
+    private String docFullname;
+
+    public Integer getDocSpecId() {
+        return docSpecId;
+    }
+
+    public void setDocSpecId(Integer docSpecId) {
+        this.docSpecId = docSpecId;
+    }
+
+    @Column(name = "doc_specializationunid")
+    private Integer docSpecId;
 
     public Doctor() {
 
