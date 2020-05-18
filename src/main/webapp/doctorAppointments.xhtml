@@ -17,19 +17,21 @@
 
         <p:menu style="width:300px">
             <p:submenu label="Пациенты">
-                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="patientsTable"/>
+                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="@form"
+                            process="@this"/>
                 <p:menuitem value="Найти пациента по id" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
             </p:submenu>
             <p:submenu label="Посещения">
-                <p:menuitem value="Список посещений"
-                            url="http://localhost:8081/umb_war_exploded/appointmentList.xhtml"/>
+                <p:menuitem value="Список посещений" action="#{menuView.showAppointmentsList()}" update="@form"
+                            process="@this"/>
                 <p:menuitem value="Найти посещение по id"
                             url="http://localhost:8081/umb_war_exploded/appointment.xhtml"/>
                 <p:menuitem value="Добавить посещение"
                             url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
             </p:submenu>
             <p:submenu label="Коллеги">
-                <p:menuitem value="Список коллег" url="http://www.primefaces.org"/>
+                <p:menuitem value="Список коллег" action="#{menuView.showDoctorsList()}" update="@form"
+                            process="@this"/>
             </p:submenu>
         </p:menu>
 
@@ -37,7 +39,7 @@
                      value="#{patientListBean.patientList}"
                      rendered="#{menuView.patientsShow}"
                      var="row"
-                     style="margin-left: 350px;  width: auto">
+                     style="margin-left: 350px; margin-top: -400px; width: auto">
             <p:column headerText="Имя">
                 <h:outputText value="#{row.pFirstName}"/>
             </p:column>
@@ -45,11 +47,12 @@
                 <h:outputText value="#{row.pBirthDay}"/>
             </p:column>
         </p:dataTable>
+
         <p:dataTable id="appsTable"
                      value="#{appointmentListBean.appointmentList}"
-                     rendered="false"
+                     rendered="#{menuView.appointmentsShow}"
                      var="row"
-                     style="margin-left: 350px; width: auto">
+                     style="margin-left: 350px;  margin-top: -400px; width: auto">
             <p:column headerText="Дата посещения">
                 <h:outputText value="#{row.appDate}"/>
             </p:column>
@@ -70,9 +73,9 @@
 
         <p:dataTable id="docsTable"
                      value="#{doctorListBean.doctorList}"
-                     rendered="false"
+                     rendered="#{menuView.doctorsShow}"
                      var="row"
-                     style="margin-left: 350px; width: auto">
+                     style="margin-left: 350px; margin-top: -400px; width: auto">
             <p:column headerText="Имя">
                 <h:outputText value="#{row.docFullname}"/>
             </p:column>

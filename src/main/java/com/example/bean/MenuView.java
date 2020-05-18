@@ -60,6 +60,7 @@ public class MenuView {
         DefaultSubMenu doctors = new DefaultSubMenu("Коллеги");
         //2 MENU ITEMS
         DefaultMenuItem patientsList = new DefaultMenuItem("Список пациентов");
+        //patientsList.
         DefaultMenuItem findPatById = new DefaultMenuItem("Найти пациента по ID");
         //ADDING PATIENTS MENU ITEMS TO SUBMENU PATIENTS
         patients.getElements().add(patientsList);
@@ -97,7 +98,23 @@ public class MenuView {
     {
 
         patientsShow = true;
+        appointmentsShow = false;
+        doctorsShow = false;
 
+    }
+    public void showAppointmentsList()
+    {
+
+        appointmentsShow = true;
+        doctorsShow = false;
+        patientsShow = false;
+    }
+    public void showDoctorsList()
+    {
+
+        doctorsShow = true;
+        appointmentsShow = false;
+        patientsShow = false;
     }
     public void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
