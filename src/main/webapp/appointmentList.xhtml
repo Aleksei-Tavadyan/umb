@@ -12,19 +12,19 @@
              value="#{appointmentListBean.appointmentList}"
              rendered="true"
              var="row">
-    <p:column headerText="Date">
+    <p:column headerText="Дата посещения">
         <h:outputText value="#{row.appDate}"/>
     </p:column>
-    <p:column headerText="Diagnosis">
+    <p:column headerText="Диагноз">
         <h:outputText value="#{row.appDiagnosis}"/>
     </p:column>
-    <p:column headerText="Notes">
+    <p:column headerText="Заметки">
         <h:outputText value="#{row.appNotes}"/>
     </p:column>
-    <p:column headerText="Type of appointment">
+    <p:column headerText="Тип посещения">
         <h:outputText value="#{row.appType}"/>
     </p:column>
-    <p:column headerText="Doc`s ID">
+    <p:column headerText="ID врача">
         <h:outputText value="#{row.appDocUnid}"/>
     </p:column>
 

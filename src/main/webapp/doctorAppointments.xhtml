@@ -7,34 +7,46 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <link rel="stylesheet" href="resources/theme.css"/>
+<h:head>
+    Меню Врача
+</h:head>
 
-<h:form>
-<p:growl id="messages" showDetail="false"/>
+<h:body>
+    <h:form id="menu">
+        <p:growl id="messages" showDetail="false" autoUpdate="true"/>
 
-<h3>Doctor`s menu</h3>
-<p:menu>
-    <p:submenu label="Patients">
-        <p:menuitem value="Get list of patients" url="http://localhost:8081/umb_war_exploded/patientList.xhtml" />
-        <p:menuitem value="Search for a certain patient" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
-    </p:submenu>
-    <p:submenu label="Appointments">
-        <p:menuitem value="List of Appointments" url="http://localhost:8081/umb_war_exploded/appointmentList.xhtml"/>
-        <p:menuitem value="Search for a certain Appointment" url="http://localhost:8081/umb_war_exploded/appointment.xhtml" />
-        <p:menuitem value="Add an Appointment" url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
-    </p:submenu>
-    <p:submenu label="Colleges">
-        <p:menuitem value="List of Collegies" url="http://www.primefaces.org" />
-    </p:submenu>
-</p:menu>
-</h:form>
+        <p:menu style="width:300px">
+            <p:submenu label="Пациенты">
+                <p:menuitem value="Список пациентов"/>
+                <p:menuitem value="Найти пациента по id" url="http://localhost:8081/umb_war_exploded/patient.xhtml"/>
+            </p:submenu>
+            <p:submenu label="Посещения">
+                <p:menuitem value="Список посещений"
+                            url="http://localhost:8081/umb_war_exploded/appointmentList.xhtml"/>
+                <p:menuitem value="Найти посещение по id"
+                            url="http://localhost:8081/umb_war_exploded/appointment.xhtml"/>
+                <p:menuitem value="Добавить посещение"
+                            url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
+            </p:submenu>
+            <p:submenu label="Коллеги">
+                <p:menuitem value="Список коллег" url="http://www.primefaces.org"/>
+            </p:submenu>
+        </p:menu>
 
 
+    </h:form>
 
-<h:form>
 
-    <p:inputText id="bugs"/>
-    <p:commandButton id="ajaxBugsSubmit" action="BUGS" value="SEND US ANY USEFULL INFORMATION OR BUGS">
-    </p:commandButton>
-</h:form>
+    <h:form id="bugsForm" style="width:300px">
 
+        <p:inputText id="bugs"
+                     style="width:280px"
+        />
+        <p:commandButton id="ajaxBugsSubmit"
+                         action="BUGS"
+                         value="Отправьте нам любую полезную информацию\баги"
+                         style="width:300px">
+        </p:commandButton>
+    </h:form>
+</h:body>
 </html>

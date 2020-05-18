@@ -8,9 +8,9 @@
 
 
     <h:form id="asdasd">
-        <h:outputText value="INPUT Appointment ID BELOW"/>
+        <h:outputText value="Введите ID посещения"/>
         <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"/>
-        <p:commandButton value="Appointment w/ inserted id"
+        <p:commandButton value="Посещение с указанным ID"
                        actionListener="#{appointmentBean.selectCurrentApp}"
                        process="@this"/>
         <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"/>

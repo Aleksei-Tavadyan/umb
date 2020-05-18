@@ -16,6 +16,25 @@ public class PatientBean {
 
     private Integer size;
 
+    private Integer selectedPatientId;
+
+    public Integer getSelectedPatientId() {
+        return selectedPatientId;
+    }
+
+    public void setSelectedPatientId(Integer selectedPatientId) {
+        this.selectedPatientId = selectedPatientId;
+    }
+
+    public Patient getCurrentPatient() {
+        return currentPatient;
+    }
+
+    public void setCurrentPatient(Patient currentPatient) {
+        this.currentPatient = currentPatient;
+    }
+
+    private Patient currentPatient;
     public PatientBean() {
 
     }
@@ -41,5 +60,10 @@ public class PatientBean {
 
     public void setSize(Integer size) {
         this.size = size;
+    }
+
+    public void selectCurrentPatient()
+    {
+        currentPatient = PatientController.getInstance().getById(selectedPatientId);
     }
 }

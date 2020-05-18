@@ -11,13 +11,14 @@
 <p:dataTable id="mainTable"
              value="#{patientListBean.patientList}"
              rendered="true"
-             var="row">
-    <p:column headerText="КУ">
+             var="row"
+             style="margin-left: 350px; margin-top: 50px; width: auto"
+>
+    <p:column headerText="Имя">
         <h:outputText value="#{row.pFirstName}"/>
     </p:column>
-    <p:column headerText="Zdraste">
+    <p:column headerText="Дата рождения">
         <h:outputText value="#{row.pBirthDay}"/>
     </p:column>
 </p:dataTable>
-
 </html>

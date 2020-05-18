@@ -41,7 +41,6 @@ public class AppointmentBean {
 
     public void selectCurrentApp()
     {
-        System.out.println("ASDDSASDASDA    ");
         currentAppointment = AppointmentController.getInstance().getById(selectedAppId);
     }
 
