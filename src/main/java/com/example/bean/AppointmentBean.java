@@ -17,6 +17,15 @@ public class AppointmentBean {
 
     private Integer size;
 
+    public boolean isAppVisible() {
+        return isAppVisible;
+    }
+
+    public void setAppVisible(boolean appVisible) {
+        isAppVisible = appVisible;
+    }
+
+    private boolean isAppVisible = false;
     private Integer selectedAppId;
     private Appointment currentAppointment;
 
@@ -42,6 +51,7 @@ public class AppointmentBean {
     public void selectCurrentApp()
     {
         currentAppointment = AppointmentController.getInstance().getById(selectedAppId);
+        isAppVisible = true;
     }
 
 

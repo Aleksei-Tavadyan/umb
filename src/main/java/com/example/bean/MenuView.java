@@ -112,6 +112,7 @@ public class MenuView {
         addMessage("Success", "Data saved");
 
     }
+    public void sendBugs() {    addMessage("Спасибо за информацию!","Ваше сообщение об ошибке было отправлено!");}
 
     public void update() {
         addMessage("Success", "Data updated");
@@ -125,8 +126,6 @@ public class MenuView {
     {
 
         patientsShow = true;
-        appointmentsShow = false;
-        doctorsShow = false;
 
     }
     public void showSearchApp()
@@ -141,8 +140,6 @@ public class MenuView {
     {
 
         appointmentsShow = true;
-        doctorsShow = false;
-        patientsShow = false;
     }
     public void showDoctorsList()
     {
