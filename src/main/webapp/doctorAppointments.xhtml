@@ -17,21 +17,21 @@
 
         <p:menu style="width:300px">
             <p:submenu label="Пациенты">
-                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="@form"
+                <p:menuitem value="Список пациентов" action="#{menuView.showPatientList()}" update="menu"
                             process="@this"/>
-                <p:menuitem value="Найти пациента по id" action="#{menuView.showSearchPat()}" update="@form"
-                            process="@this"/>
+                <p:menuitem value="Найти пациента по id"
+                            url="http://localhost:8081/umb_war_exploded/patient.xhtml" />
             </p:submenu>
             <p:submenu label="Посещения">
-                <p:menuitem value="Список посещений" action="#{menuView.showAppointmentsList()}" update="@form"
+                <p:menuitem value="Список посещений" action="#{menuView.showAppointmentsList()}" update="menu"
                             process="@this"/>
-                <p:menuitem value="Найти посещение по id" action="#{menuView.showSearchApp()}" update="@form"
-                            process="@this"/>
+                <p:menuitem value="Найти посещение по id"
+                            url="http://localhost:8081/umb_war_exploded/appointment.xhtml" />
                 <p:menuitem value="Добавить посещение"
                             url="http://localhost:8081/umb_war_exploded/addAppointment.xhtml"/>
             </p:submenu>
             <p:submenu label="Коллеги">
-                <p:menuitem value="Список коллег" action="#{menuView.showDoctorsList()}" update="@form"
+                <p:menuitem value="Список коллег" action="#{menuView.showDoctorsList()}" update="menu"
                             process="@this"/>
             </p:submenu>
         </p:menu>
@@ -85,28 +85,6 @@
             </p:column>
         </p:dataTable>
 
-        <p:outputPanel id="searchApp" rendered="#{menuView.searchAppShow}"
-                       style="margin-left: 350px; margin-top: -400px; width: 300px"
-        >
-            <h:outputText value="Введите ID посещения"
-                          style="width: 300px"
-            />
-            <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"
-                         style=" width: 280px"
-            />
-            <p:commandButton value="Посещение с указанным ID"
-                             actionListener="#{appointmentBean.selectCurrentApp}"
-                             style="width: 300px"
-
-            />
-            <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"
-                          style="width: 300px"
-                          rendered="#{appointmentBean.appVisible}"
-
-            />
-
-        </p:outputPanel>
-
         <p:outputPanel id="searchPat" rendered="#{menuView.searchPatShow}"
                        style="margin-left: 350px; margin-top: -400px; width: 300px"
         >
@@ -119,24 +97,51 @@
             <p:commandButton value="Пациент с указанным ID"
                              actionListener="#{patientBean.selectCurrentPatient}"
                              process="@this"
+                             update="searchPat"
                              style="width: 235px"
             />
             <h:outputText value="#{patientBean.currentPatient.pFullName}" id="patOut"/>
 
         </p:outputPanel>
+
+
+        <p:outputPanel id="searchApp" rendered="#{menuView.searchAppShow}"
+                style="margin-left: 350px; margin-top: -400px; width: 300px"
+        >
+            <h:outputText value="Введите ID посещения"
+                          style="width: 300px"
+            />
+            <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"
+                         style=" width: 280px"
+            />
+            <p:commandButton value="Посещение с указанным ID"
+                             actionListener="#{appointmentBean.selectCurrentApp}"
+                             style="width: 300px"
+                             update="searchApp"
+                             process="@this"
+
+            />
+            <h:outputText value="AAAAAA " id="outId"
+                          style="width: 300px"
+                          rendered="#{appointmentBean.appVisible}"
+
+            />
+        </p:outputPanel>
+
+        <p:outputPanel id="bugsForm" style="width:300px">
+
+            <p:inputText id="bugs"
+                         style="width:280px"
+            />
+            <p:commandButton id="ajaxBugsSubmit"
+                             action="#{menuView.sendBugs}"
+                             value="Отправьте нам любую полезную информацию\баги"
+                             style="width:300px">
+            </p:commandButton>
+        </p:outputPanel>
     </h:form>
 
 
-    <h:form id="bugsForm" style="width:300px">
 
-        <p:inputText id="bugs"
-                     style="width:280px"
-        />
-        <p:commandButton id="ajaxBugsSubmit"
-                         action="#{menuView.sendBugs}"
-                         value="Отправьте нам любую полезную информацию\баги"
-                         style="width:300px">
-        </p:commandButton>
-    </h:form>
 </h:body>
 </html>

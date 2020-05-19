@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="resources/theme.css"/>
 
 
-    <h:form id="asdasd">
+    <h:form id="appointmentId"
+            style="width: 215px"
+    >
         <h:outputText value="Введите ID посещения"/>
-        <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentId"/>
+        <p:inputText value="#{appointmentBean.selectedAppId}" id="appointmentInput"/>
         <p:commandButton value="Посещение с указанным ID"
                        actionListener="#{appointmentBean.selectCurrentApp}"
                        process="@this"/>
-        <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outId"/>
+
+        <h3>Жалобы</h3>
+        <h:outputText value="#{appointmentBean.currentAppointment.appName}" id="outAppName"/>
+        <h3>Диагноз</h3>
+        <h:outputText value="#{appointmentBean.currentAppointment.appDiagnosis}" id="outAppDiagnosis"/>
+        <h3>Заметки</h3>
+        <h:outputText value="#{appointmentBean.currentAppointment.appNotes}" id="outAppNotes"/>
 
     </h:form>
 

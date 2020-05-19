@@ -8,14 +8,19 @@
       xmlns:p="http://primefaces.org/ui">
 <link rel="stylesheet" href="resources/theme.css"/>
 
-<h:form id="asdasd">
+<h:form id="patientId"
+        style="width: 215px"
+>
     <h:outputText value="Введите ID пациента"/>
     <p:inputText value="#{patientBean.selectedPatientId}" id="appointmentId"/>
     <p:commandButton value="Пациент с указанным ID"
                      actionListener="#{patientBean.selectCurrentPatient}"
                      process="@this"/>
-    <h:outputText value="#{patientBean.currentPatient.pFullName}" id="outId"/>
+    <h3>Полное имя</h3>
+    <h:outputText value="#{patientBean.currentPatient.pFullName}" id="outName"/>
+    <h3>Имя</h3>
+    <h:outputText value="#{patientBean.currentPatient.pFirstName}" id="outFirstName"
+    />
 
 </h:form>
-
 </html>
